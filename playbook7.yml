@@ -1,0 +1,14 @@
+---
+- name: install some software applications
+  hosts: all
+  vars: 
+   - a: tomcat9
+   - b: present
+   - c: yes
+  tasks:
+   - name: install git
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+...      

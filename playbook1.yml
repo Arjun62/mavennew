@@ -1,0 +1,11 @@
+---
+- name: create user on the manage nodes
+  hosts: appserver
+  tasks:
+   - name: user creation
+     user:
+      name: Mallikharjun
+      password: Arjun62@
+      home: home/Mallikharjun
+      uid: 4321
+      shell: /bin/bash

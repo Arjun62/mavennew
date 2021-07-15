@@ -1,0 +1,24 @@
+---
+- name: configuring apache2
+  hosts: all
+  tasks:
+   - name: install apache2
+     apt:
+      name: apache2
+      state: present
+   - name: edit the index.html file
+     copy:
+      content: "Mallikharjun"
+      dest: /var/www/html/index.html
+   - name: restarted apache2
+     service: 
+      name: apache2
+      state: restarted
+   - name: check url respond for servers
+     uri:
+      url: "{{item}}"
+      status_code: 200
+     with_items:
+      - http://172.31.50.248
+      - http://172.31.54.196
+...     
